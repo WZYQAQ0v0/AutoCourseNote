@@ -14,13 +14,13 @@
 cd course_note_agents
 ```
 
-1. 安装项目命令。
+2. 安装项目命令。
 
 ```powershell
 python -m pip install -e .
 ```
 
-1. 把课程资料放入一个文件夹。
+3. 把课程资料放入一个文件夹。
 
 推荐每门课单独放一个目录，例如：
 
@@ -67,7 +67,7 @@ api_key_env = "COURSE_NOTE_LLM_API_KEY"
 
 `api_key_env` 填的是环境变量名，不是真实 API key。不要把真实 key 写进配置文件。最后一行不要修改
 
-1. 在 PowerShell 中设置 API key。
+6. 购买API额度并在 PowerShell 中设置 API key。
 
 ```powershell
 $env:COURSE_NOTE_LLM_API_KEY = "你的真实 API key"
