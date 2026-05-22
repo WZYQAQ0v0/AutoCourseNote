@@ -1,4 +1,0 @@
-interface:
-  display_name: "Course Workflow Orchestrator"
-  short_description: "Run the complete local course-note pipeline"
-  default_prompt: "Use this skill to plan and run a full course note generation workflow from materials to PDF."

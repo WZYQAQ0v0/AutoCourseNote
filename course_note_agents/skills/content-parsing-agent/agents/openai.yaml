@@ -1,4 +1,0 @@
-interface:
-  display_name: "Content Parsing Agent"
-  short_description: "Parse course files into clean structured text"
-  default_prompt: "Use this skill to parse PDFs, PPTs, Word files, images, and text into downstream-ready content."
