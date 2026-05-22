@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/course-note-agents/phase3.draft_index.schema.json",
+  "title": "Course Note Agents Phase 3 Draft Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "language",
+    "generated_at",
+    "parsed_index_ref",
+    "draft_documents_dir",
+    "combined_markdown_ref",
+    "counts",
+    "documents"
+  ],
+  "properties": {
+    "schema_version": { "const": "phase3.draft_index.v1" },
+    "course_id": { "type": "string" },
+    "language": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "parsed_index_ref": { "type": "string" },
+    "draft_documents_dir": { "type": "string" },
+    "combined_markdown_ref": { "type": "string" },
+    "counts": { "type": "object" },
+    "documents": { "type": "array" }
+  },
+  "additionalProperties": false
+}

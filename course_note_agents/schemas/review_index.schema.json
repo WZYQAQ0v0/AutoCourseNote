@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/course-note-agents/phase4.review_index.schema.json",
+  "title": "Course Note Agents Phase 4 Review Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "language",
+    "generated_at",
+    "draft_index_ref",
+    "reviewed_documents_dir",
+    "combined_markdown_ref",
+    "counts",
+    "documents"
+  ],
+  "properties": {
+    "schema_version": { "const": "phase4.review_index.v1" },
+    "course_id": { "type": "string" },
+    "language": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "draft_index_ref": { "type": "string" },
+    "reviewed_documents_dir": { "type": "string" },
+    "combined_markdown_ref": { "type": "string" },
+    "counts": { "type": "object" },
+    "documents": { "type": "array" }
+  },
+  "additionalProperties": false
+}

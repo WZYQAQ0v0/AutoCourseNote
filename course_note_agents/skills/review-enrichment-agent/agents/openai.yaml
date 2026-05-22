@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Enrichment Agent"
+  short_description: "Review and enrich draft course notes"
+  default_prompt: "Use this skill to check draft notes, fill gaps, and improve explanations without unsupported invention."

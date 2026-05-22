@@ -1,0 +1,95 @@
+# Course Note Agents 配置文件
+# 普通使用者通常只需要修改 [course] 和 [llm] 两部分。
+
+[course]
+# 课程唯一标识。建议使用英文、数字和下划线，不要包含空格。
+course_id = "my_course"
+
+# 课程资料目录。把 PPT、PDF、Word、图片、往年题等都放进这个文件夹。
+materials_dir = "materials/my_course"
+
+# 输出目录名。所有运行产物会进入 runs/<run_prefix>/ 下的各阶段子目录。
+run_prefix = "my_course"
+
+# 中文资料建议保持 zh-CN。
+language = "zh-CN"
+
+[llm]
+# 支持 OpenAI-compatible 接口。DeepSeek 示例见下方默认值。
+provider = "deepseek"
+base_url = "https://api.deepseek.com/v1"
+model = "deepseek-chat"
+
+# 这里填写“环境变量名”，不是 API key 本身。
+# 在 PowerShell 中设置真实 key：
+# $env:COURSE_NOTE_LLM_API_KEY = "你的真实 API key"
+api_key_env = "COURSE_NOTE_LLM_API_KEY"
+
+[workflow]
+# 可选阶段：ingest, parse, draft, review, textbook, polish, layout
+start_at = "ingest"
+stop_after = "layout"
+skip_stages = []
+
+# true 时只打印将要执行的步骤，不真正运行。
+dry_run = false
+
+[paths]
+# 所有运行产物的根目录。多门课会分别进入 runs/<run_prefix>/。
+runs_dir = "runs"
+
+[ingest]
+include_hidden = false
+include_unsupported = false
+compact = false
+max_preview_chars = 8000
+
+[parse]
+# auto：如果 LLM 配置完整则清洗；off：不用 LLM；require：必须使用 LLM。
+llm_mode = "auto"
+max_chunk_chars = 2600
+llm_max_page_chars = 6000
+llm_timeout_seconds = 60
+
+# 留空表示不限制；例如 ["lecture_slides"] 表示只解析课件。
+include_roles = []
+exclude_roles = []
+
+# 0 表示不限制，适合正式全量运行。
+limit_documents = 0
+limit_pages = 0
+
+[draft]
+llm_timeout_seconds = 240
+max_input_chars = 26000
+limit_documents = 0
+
+[review]
+llm_timeout_seconds = 240
+max_source_chars = 26000
+max_related_chars = 14000
+limit_documents = 0
+
+[textbook]
+llm_timeout_seconds = 300
+max_outline_context_chars = 70000
+max_chapter_context_chars = 80000
+max_self_check_chars = 120000
+self_check_iterations = 2
+max_self_check_iterations = 2
+limit_chapters = 0
+
+[polish]
+llm_timeout_seconds = 300
+max_chapter_chars = 36000
+max_self_check_chars = 24000
+max_global_context_chars = 18000
+limit_chapters = 0
+
+[layout]
+# 如果没有安装 TeX Live/MiKTeX，可以改为 false，只生成 Markdown 和 TeX。
+compile_pdf = true
+xelatex_path = ""
+cjk_main_font = "NotoSerifSC-VF.ttf"
+cjk_sans_font = "NotoSansSC-VF.ttf"
+compile_timeout_seconds = 300

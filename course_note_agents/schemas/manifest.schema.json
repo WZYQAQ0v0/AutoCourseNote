@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/course-note-agents/phase1.manifest.schema.json",
+  "title": "Course Note Agents Phase 1 Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "language",
+    "generated_at",
+    "materials_dir",
+    "output_dir",
+    "counts",
+    "files"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "phase1.manifest.v1"
+    },
+    "course_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "type": "string",
+      "default": "zh-CN",
+      "examples": ["zh-CN"]
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "materials_dir": {
+      "type": "string"
+    },
+    "output_dir": {
+      "type": "string"
+    },
+    "counts": {
+      "type": "object",
+      "required": ["total_files", "duplicate_files_by_sha256", "by_role", "skipped"],
+      "properties": {
+        "total_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duplicate_files_by_sha256": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "by_role": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "skipped": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file_id",
+          "path",
+          "absolute_path",
+          "extension",
+          "mime_type",
+          "size_bytes",
+          "modified_at",
+          "sha256",
+          "document_role",
+          "confidence",
+          "reason",
+          "next_pipeline",
+          "probe_method"
+        ],
+        "properties": {
+          "file_id": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "path": {
+            "type": "string"
+          },
+          "absolute_path": {
+            "type": "string"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "mime_type": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "modified_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "document_role": {
+            "enum": [
+              "syllabus",
+              "textbook",
+              "lecture_slides",
+              "assignment",
+              "past_exam",
+              "solution",
+              "reference_paper",
+              "notes",
+              "miscellaneous"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "reason": {
+            "type": "string"
+          },
+          "next_pipeline": {
+            "type": "string"
+          },
+          "secondary_roles": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "syllabus",
+                "textbook",
+                "lecture_slides",
+                "assignment",
+                "past_exam",
+                "solution",
+                "reference_paper",
+                "notes",
+                "miscellaneous"
+              ]
+            }
+          },
+          "processing_hints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "probe_method": {
+            "type": "string"
+          },
+          "page_count": {
+            "type": ["integer", "null"],
+            "minimum": 0
+          },
+          "slide_count": {
+            "type": ["integer", "null"],
+            "minimum": 0
+          },
+          "word_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "needs_ocr": {
+            "type": "boolean"
+          },
+          "signals": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

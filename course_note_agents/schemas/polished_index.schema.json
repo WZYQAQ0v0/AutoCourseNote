@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/course-note-agents/phase6.polished_index.schema.json",
+  "title": "Course Note Agents Phase 6 Polished Textbook Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "language",
+    "generated_at",
+    "textbook_index_ref",
+    "polished_markdown_ref",
+    "polished_chapters_dir",
+    "polishing_reports_dir",
+    "chapters",
+    "counts"
+  ],
+  "properties": {
+    "schema_version": { "const": "phase6.polished_textbook_index.v1" },
+    "course_id": { "type": "string" },
+    "language": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "textbook_index_ref": { "type": "string" },
+    "polished_markdown_ref": { "type": "string" },
+    "polished_chapters_dir": { "type": "string" },
+    "polishing_reports_dir": { "type": "string" },
+    "glossary_ref": { "type": ["string", "null"] },
+    "symbols_ref": { "type": ["string", "null"] },
+    "citations_ref": { "type": ["string", "null"] },
+    "chapters": { "type": "array" },
+    "counts": { "type": "object" }
+  },
+  "additionalProperties": false
+}

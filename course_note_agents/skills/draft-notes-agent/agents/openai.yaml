@@ -1,0 +1,4 @@
+interface:
+  display_name: "Draft Notes Agent"
+  short_description: "Generate first-pass notes from parsed materials"
+  default_prompt: "Use this skill to transform parsed course content into source-grounded draft notes."
