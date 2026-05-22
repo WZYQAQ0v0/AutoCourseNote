@@ -20,7 +20,7 @@ cd course_note_agents
 python -m pip install -e .
 ```
 
-3. 把课程资料放入一个文件夹。
+3. 在当前目录下创建materials文件夹,并将课程所有资料打包到该文件夹下的一个子目录中。
 
 推荐每门课单独放一个目录，例如：
 
