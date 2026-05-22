@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/course-note-agents/phase5.textbook_index.schema.json",
+  "title": "Course Note Agents Phase 5 Textbook Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "language",
+    "generated_at",
+    "review_index_ref",
+    "outline_ref",
+    "textbook_markdown_ref",
+    "chapters_dir",
+    "glossary_ref",
+    "symbols_ref",
+    "citations_ref",
+    "self_checks",
+    "chapters",
+    "counts"
+  ],
+  "properties": {
+    "schema_version": { "const": "phase5.textbook_index.v1" },
+    "course_id": { "type": "string" },
+    "language": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "review_index_ref": { "type": "string" },
+    "outline_ref": { "type": "string" },
+    "textbook_markdown_ref": { "type": "string" },
+    "chapters_dir": { "type": "string" },
+    "glossary_ref": { "type": "string" },
+    "symbols_ref": { "type": "string" },
+    "citations_ref": { "type": "string" },
+    "self_checks": { "type": "array" },
+    "chapters": { "type": "array" },
+    "counts": { "type": "object" }
+  },
+  "additionalProperties": false
+}

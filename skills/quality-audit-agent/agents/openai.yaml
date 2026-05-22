@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quality Audit Agent"
+  short_description: "Audit pipeline outputs for coverage and reliability"
+  default_prompt: "Use this skill to inspect generated artifacts, preview config runs, and report quality risks."

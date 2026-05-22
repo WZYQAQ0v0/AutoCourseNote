@@ -1,0 +1,2 @@
+"""Draft note writing agent."""
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Layout PDF Agent"
+  short_description: "Convert polished notes into book-style PDF"
+  default_prompt: "Use this skill to convert polished Markdown into LaTeX and compile a readable PDF."

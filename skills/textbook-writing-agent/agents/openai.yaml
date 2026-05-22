@@ -1,0 +1,4 @@
+interface:
+  display_name: "Textbook Writing Agent"
+  short_description: "Assemble reviewed notes into a complete textbook"
+  default_prompt: "Use this skill to plan chapters and write a complete course textbook from reviewed notes."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Material Ingestion Agent"
+  short_description: "Classify and inventory local course materials"
+  default_prompt: "Use this skill to scan a materials directory and produce a reliable manifest."

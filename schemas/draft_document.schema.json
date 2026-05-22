@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/course-note-agents/phase3.draft_document.schema.json",
+  "title": "Course Note Agents Phase 3 Draft Document",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "language",
+    "source",
+    "writer",
+    "title",
+    "markdown",
+    "key_points",
+    "evidence_refs",
+    "open_issues",
+    "warnings"
+  ],
+  "properties": {
+    "schema_version": { "const": "phase3.draft_document.v1" },
+    "course_id": { "type": "string" },
+    "language": { "type": "string" },
+    "source": { "type": "object" },
+    "writer": { "type": "object" },
+    "title": { "type": "string" },
+    "markdown": { "type": "string" },
+    "key_points": { "type": "array", "items": { "type": "string" } },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "open_issues": { "type": "array", "items": { "type": "string" } },
+    "warnings": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

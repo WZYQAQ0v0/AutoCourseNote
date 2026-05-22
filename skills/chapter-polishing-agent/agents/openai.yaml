@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chapter Polishing Agent"
+  short_description: "Polish textbook chapters with consistency checks"
+  default_prompt: "Use this skill to refine textbook chapters while preserving citations, terminology, and sourced content."
